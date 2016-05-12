@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multivariable visualizations</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <!--
+    TO DO:
+    - Iconos axis / radar.
+    - Repasar mouseovers.
+    - Control número de ejes.
+    - Código colores spider.
+    - Export SVG
+    - Subir a algún sitio.
+    - Drag n drop de ficheros de datos.
+    - Visualización por columnas apiladas.
+    - About.
+    -->    
+
+    <style type="text/css"> 
+
+
+    </style>
+</head>
+
+<body onload="javascript:load()">
+
+    <div class="container">
+
+	</div>
+
+    <a id="link_controles" href="javascript:toggleControles();">Settings</a>
+    <a id="link_data" href="javascript:showItemList();showData();">Data</a>
+    <a id="link_download" href="javascript:download();">Download</a>
+
+    <div class="panel" id="data">
+        <a class="link_close" href="javascript:unselect();hideData();">Cerrar</a>
+        <div id="item_detail">            
+            <h2><a href="javascript:showItemList()">Back</a><span>Idea</span></h2>
+            <div id="description">
+                <span class="label">Description</span>
+                <p></p>
+            </div>
+        </div>
+        <div id="item_list">            
+            <h2>Idea list</h2>
+            <ul>
+            </ul>
+        </div>
+
+    </div>
+    <div class="panel" id="controles">
+        <a class="link_close" href="javascript:toggleControles()">Cerrar</a>
+        
+        <div>
+            <h2>Graph settings</h2>
+            <a href="#" class="graph_selector axisSelector selected" onclick="javascript:selectAxis()">Axis</a><a href="#" class="graph_selector spiderSelector" onclick="javascript:selectSpider()">Radar</a>
+        </div>
+        <div id="axis_controles">
+            <div>
+                <span class="label">X axis</span>
+                <select id="selec_eje_x" onchange="javascript:change_x()"></select>
+            </div>
+
+            <div>
+                <span class="label">Y axis</span>
+                <select id="selec_eje_y" onchange="javascript:change_y()"></select>
+            </div>
+
+            <div>
+                <span class="label">Radio</span>
+                <select id="selec_r" onchange="javascript:change_r()"></select>
+            </div>
+            <div>
+                <span class="label">Color</span>
+                <select id="selec_c" onchange="javascript:change_c()"></select>
+            </div>        
+        </div>
+        <div id="spider_controles">
+            <div>
+                <span class="label">Axis number</span>
+                <select id="selec_num_ejes" onchange="javascript:change_num_ejes()"></select>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?1.27.1"></script>
+    <script type="text/javascript" src="jquery-1.12.1.min.js"></script>    
+    <script type="text/javascript" src="jquery-ui.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="data.js"></script>
+
+</body>
+</html>
